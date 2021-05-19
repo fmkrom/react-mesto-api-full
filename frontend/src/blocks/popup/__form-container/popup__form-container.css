@@ -1,0 +1,28 @@
+.popup__form-container{
+        width: 430px;
+        height: max-content;
+        background-color: white;
+        
+        margin:0 auto;
+        margin-left:22px;
+        margin-right:22px;
+    
+        display: flex;
+        flex-direction: column;
+    
+        border-radius: 10px;
+    }
+    
+    @media screen and (max-width:549px){
+        .popup__form-container{
+            width: 90%;
+        }
+    }
+    
+    @media screen and (max-width:367px){
+        .popup__form-container{
+            width: 98%;
+            margin-left:0;
+            margin-right:0;
+        }
+    }

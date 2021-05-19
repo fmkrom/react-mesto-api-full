@@ -1,0 +1,16 @@
+.card__open-fullsize-image{
+    height: 100%;
+    margin: 0 auto;
+    padding:0;
+    
+    border:none;
+    outline:none;
+    background-color: none;
+    cursor: pointer;
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+ 

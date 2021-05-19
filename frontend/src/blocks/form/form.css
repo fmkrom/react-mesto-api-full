@@ -1,0 +1,15 @@
+@import "./__button-save/form__button-save.css";
+@import "./__field/form__field.css";
+
+.form{
+    margin:0 auto;
+        
+    width:358px;
+    height: max-content;
+}
+
+@media screen and (max-width:435px){
+    .form{
+        width:90%;
+    }
+}

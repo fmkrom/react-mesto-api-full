@@ -1,0 +1,7 @@
+@import "./_hidden/form-error_hidden.css";
+@import "./_shown/form-error_shown.css";
+
+.form-error{
+    color:red;
+    font-size:10px;
+}

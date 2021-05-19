@@ -1,0 +1,23 @@
+.form__field {
+    width: 358px;
+    height: 27px;
+    margin: 0 auto;
+
+    margin-top: 29px;
+
+    border-top:0;
+    border-left:0;
+    border-right:0;
+
+    border-bottom: 3px solid grey;
+}
+
+.form__field:first-of-type{
+    margin-top: 0;
+}
+
+@media screen and (max-width: 450px){
+    .form__field{
+        width:90%;
+    }
+}

@@ -1,0 +1,16 @@
+@import "./_light/popup__overlay_light.css";
+@import "./_dark/popup__overlay_dark.css";
+
+.popup__overlay {
+   width: 100%;
+   height: 100%;
+   z-index:2;
+
+   position: absolute;
+   top: -43px;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+   padding-top: 195px;
+}

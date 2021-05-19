@@ -1,0 +1,24 @@
+.info-tooltip-popup__text {
+    text-align: center;
+
+    margin: 0 auto;
+    
+    margin-top: 34px;
+    margin-bottom: 54px;
+
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+
+    width:358px;
+    height: auto;
+
+}
+
+.info-tooltip-image-notification{
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    margin-top: 60px;
+}

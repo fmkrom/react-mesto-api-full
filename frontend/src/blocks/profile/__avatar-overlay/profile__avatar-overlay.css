@@ -1,0 +1,22 @@
+/*@import "./_shown/profile__avatar-overlay_shown.css";*/
+
+.profile__avatar-overlay{
+    display:block;
+    background-color: rgba(42, 44, 50, 0.9);
+    background-image: url('../../../images/__graphics/graphics__edit-avatar.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    position: relative;
+    
+    width:120px;
+    height: 120px;
+    margin-top: -125px;
+    
+    margin-left: -8px;
+
+    z-index:-1;
+}
+
+
+

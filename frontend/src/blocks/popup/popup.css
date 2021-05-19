@@ -1,0 +1,11 @@
+/*@import "./_open/popup_open.css";*/
+
+@import "./__overlay/popup__overlay.css";
+@import "./__form-container/popup__form-container.css";
+@import "./__title/popup__title.css";
+@import "./__content-block/popup__content-block.css";
+@import "./__button-close/popup__button-close.css";
+
+.popup{
+    visibility:hidden;
+}

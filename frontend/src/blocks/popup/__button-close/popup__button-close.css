@@ -1,0 +1,20 @@
+.popup__button-close{
+    justify-self: end;
+
+    width: 20px;
+    height: 20px;
+
+    transform: rotate(45deg);
+    background-image: url("../../../images/__graphics/graphics__add-button.png");
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    border: none;
+    background-color: transparent;
+}
+
+.popup__button-close:hover {
+    opacity:0.5;
+    cursor:pointer;
+}

@@ -1,0 +1,19 @@
+.popup__content-block{
+    width: max-content;
+    height: max-content;
+
+    /*z-index:2;*/
+    
+    margin:0 auto;
+    display:grid;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 570px) {
+	.popup__content-block{
+        width:90%;
+    }
+}
+

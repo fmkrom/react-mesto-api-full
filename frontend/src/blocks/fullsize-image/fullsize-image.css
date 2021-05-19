@@ -1,0 +1,9 @@
+@import "./__image-block/fullsize-image__image-block.css";
+@import "./__image/fullsize-image__image.css";
+@import "./__title/fullsize-image__title.css";
+
+.fullsize-image{
+    margin-left:20px;
+    margin-right: 20px;
+}
+

@@ -1,0 +1,12 @@
+.profile__avatar-overlay_shown {
+    display:none;
+    background-color: rgba(42, 44, 50, 0.9);
+    background-image: url('../../../../images/__graphics/graphics__edit-avatar.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    position: absolute;
+    width:120px;
+    height: 120px;
+    z-index:2;
+}

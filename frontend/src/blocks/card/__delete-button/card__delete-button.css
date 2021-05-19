@@ -1,0 +1,25 @@
+@import "./_shown/card__delete-button_shown.css";
+@import "./_hidden/card__delete-button_hidden.css";
+
+.card__delete-button{
+    width:20px;
+    height: 20px;
+    
+    background-image: url("../../../images/__graphics/graphics__delete-button.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    position: relative;
+    top:18px;
+    right:15px;
+    left:249px;
+
+    z-index:1;
+    border:0;
+}
+
+.card__delete-button:hover{
+    opacity:0.8;
+    transition: 0.3s;
+    cursor:pointer;
+}

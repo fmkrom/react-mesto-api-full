@@ -1,0 +1,11 @@
+@import url('./__content/page__content.css');
+
+.page {
+    max-width: 100%;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 0;
+    background-color: black;
+}
+
+

@@ -1,0 +1,8 @@
+.page__content{
+    width:auto;
+    height: auto;
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

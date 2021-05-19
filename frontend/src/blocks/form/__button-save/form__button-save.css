@@ -1,0 +1,26 @@
+/*@import "./_inactive/form__button-save_inactive.css";*/
+
+.form__button-save {
+    background-color: #000000;
+    color:white;
+    
+    border-radius: 2px;
+    width: 358px;
+    height: 50.15px;
+
+    margin: 0 auto;
+    margin-top: 48px;
+    margin-bottom:36.51px;
+}
+
+.form__button-save:hover{
+    opacity:0.8;
+    cursor:pointer;
+}
+
+
+@media screen and (max-width: 522px) {
+    .form__button-save{
+        width:90%;
+    }
+}

@@ -1,0 +1,10 @@
+.card__image{
+    width:450px;
+    height: auto;
+    margin-bottom:0;
+    align-self:center;
+    z-index:0;
+
+    /*position: relative;
+    top:-30px;*/
+}

@@ -1,0 +1,12 @@
+.card__image-block{
+    height: 282px;
+    width: 282px;
+    overflow:hidden;
+    margin: 0 auto;
+    /*margin-top: 0;
+    margin-bottom: 0;*/
+
+    position: relative;
+    top:-30px;
+    bottom:-5px;
+}

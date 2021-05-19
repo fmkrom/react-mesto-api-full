@@ -1,0 +1,18 @@
+@import "./___image/card__image.css";
+@import "./___image-block/card__image-block.css";
+@import "./__delete-button/card__delete-button.css";
+@import "./__like-button/card__like-button.css";
+@import "./__like-number/card__like-number.css";
+@import "./__rectangle/card__rectangle.css";
+@import "./__title-block/card__title-block.css";
+@import "./__title/card__title.css";
+@import "./__open-fullsize-image/card__open-fullsize-image.css";
+
+.card {
+    width: 282px;
+    height: 361px;
+    padding:0;
+    overflow:hidden;
+}
+
+

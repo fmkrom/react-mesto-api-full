@@ -1,0 +1,17 @@
+.profile__avatar {
+    margin-top:1px;
+    grid-area: avatar;
+    width:120px;
+    height: 120px;
+    display:flex;
+}
+
+@media screen and (max-width: 767px){
+    .profile__avatar {
+        justify-self: center;
+    }
+}
+
+.profile__avatar:hover .profile__avatar-overlay{
+    z-index:2;
+}

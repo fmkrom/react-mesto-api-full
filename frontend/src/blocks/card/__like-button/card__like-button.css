@@ -1,0 +1,20 @@
+@import "./_inactive/card__like-button_inactive.css";
+@import "./_active/card__like-button_active.css";
+
+.card__like-button{
+    background-color: white;
+    width:20px;
+    height: 18px;
+    margin-top: 6px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    border:0;
+}
+
+.card__like-button:hover{
+    opacity:0.3;
+    transition: 0.3s;
+    cursor:pointer;
+}

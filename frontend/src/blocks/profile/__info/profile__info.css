@@ -1,0 +1,14 @@
+.profile__info {
+    grid-area: name;
+    width: max-content;
+}
+
+@media screen and (max-width: 767px){
+    .profile__info{
+        width: max-content;
+        justify-self: center;
+    }
+}
+
+
+

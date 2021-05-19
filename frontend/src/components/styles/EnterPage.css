@@ -1,0 +1,126 @@
+.enter-form{
+    display:block;
+}
+
+.enter-form__content-block{
+    width: max-content;
+    height: max-content;
+
+    margin:0 auto;
+    display:grid;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media screen and (max-width: 570px) {
+	.enter-form__content-block{
+        width:90%;
+    }
+}
+
+.enter-form__form-container{
+    width: 430px;
+    height: max-content;
+    background-color: inherit;
+    color: white;
+    
+    margin:0 auto;
+    margin-left:22px;
+    margin-right:22px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+}
+
+@media screen and (max-width:549px){
+    .enter-form__form-container{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:367px){
+    .enter-form__form-container{
+        width: 98%;
+        margin-left:0;
+        margin-right:0;
+    }
+}
+
+.enter-form__button-save {
+    background-color: white;
+    color:black;
+    
+    border-radius: 2px;
+    width: 358px;
+    height: 50.15px;
+
+    margin: 0 auto;
+    margin-top: 168px;
+    margin-bottom:36.51px;
+}
+
+.enter-form__button-save:hover{
+    opacity:0.8;
+    cursor:pointer;
+}
+
+
+@media screen and (max-width: 522px) {
+    .enter-form__button-save{
+        width:90%;
+    }
+}
+
+.enter-form__field {
+    background-color: black;
+    color: white;
+    width: 358px;
+    height: 27px;
+    margin: 0 auto;
+
+    margin-top: 29px;
+
+    border-top:0;
+    border-left:0;
+    border-right:0;
+
+    border-bottom: 3px solid white;
+}
+
+.enter-form__field:first-of-type{
+    margin-top: 0;
+}
+
+@media screen and (max-width: 450px){
+    .enter-form__field{
+        width:90%;
+    }
+}
+
+.enter-form__title {
+    margin-left: 34px;
+    margin-right: 64px;
+    
+    margin-top: 34px;
+    margin-bottom: 54px;
+
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+
+    text-align: center;
+}
+
+.enter-form__subtitle{
+    text-align: center;
+    text-decoration: none;
+    color:white;
+}
+
+.enter-form__subtitle:hover{
+    opacity:0.8;
+}

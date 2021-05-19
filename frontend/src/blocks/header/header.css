@@ -1,0 +1,29 @@
+@import "./__logo/header__logo.css";
+@import "./__vector/header__vector.css";
+
+.header {
+    width: 882px;
+    height: 74px;
+    margin: 0 auto;
+        
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 40px;
+
+    border-bottom: 1px solid #545454;
+}
+
+@media screen and (max-width: 895px){
+    .header {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 324px){
+    .header {
+        width: 100%;
+    }
+}
