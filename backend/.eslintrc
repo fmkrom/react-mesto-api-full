@@ -1,0 +1,12 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "linebreak-style": ["error", "unix"],
+        "no-underscore-dangle": ["error", {"allow": ["_id"]}],
+        "no-console": "off",
+        "func-names": ["error", "never"],
+        "eqeqeq": "off",
+        "no-useless-escape": "off",
+        "no-unused-vars": "off"
+    }
+}
