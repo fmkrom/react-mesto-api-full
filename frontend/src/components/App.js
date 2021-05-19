@@ -58,14 +58,14 @@ function App(){
   }, [loggedIn, history]);
 
   useEffect(()=>{
-    Promise.all([
-      api.getCards(),  
-      api.getUser()
-    ])
-    .then(([cardsData, userData]) =>{
-      setCurrentUser(userData.user);
-      setCurrentCards(cardsData.data.reverse());
-    }).catch(err => console.log(err));
+      Promise.all([
+        api.getCards(),
+        api.getUser()
+      ])
+      .then(([cardsData, userData]) =>{
+        setCurrentUser(userData.user);
+        setCurrentCards(cardsData.data.reverse());
+      }).catch(err => console.log(err));  
   }, [loggedIn, history]);
 
   function hanldeCardClick(cardUrl, cardName){
@@ -80,7 +80,7 @@ function App(){
     
     api.toggleLikeCard(card.id, !isLiked)
     .then((newCardData)=>{
-      setCurrentCards(((state)=> state.map((c) => c._id === card.id ? newCardData : c)))
+      setCurrentCards(((state)=> state.map((c) => c._id === card.id ? newCardData.likedCard : c)))
     })  
   }
 

@@ -22,7 +22,7 @@ class Api {
     {
      method: 'GET',
      headers: {
-      authorization: `Bearer ${this._token}`,    
+      authorization: `Bearer ${this._token}`,   
       'Content-Type': 'application/json',
       },
     }).then(this.getRes);
