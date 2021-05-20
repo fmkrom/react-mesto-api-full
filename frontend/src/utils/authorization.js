@@ -26,19 +26,26 @@ export function userLogin(email, password){
     body: JSON.stringify({email, password})
   }).then(checkResponse)
   .then((data)=>{
-    // console.log('This is registered user data in frontend authorization: ', data);
     localStorage.setItem('jwt', data.userToken);
+    return data;
   })
 };
 
-export function checkToken(token){
-  return fetch((`${basicBackendUrl}/users/me`, {
+export function getContent(token){
+  return fetch('http://localhost:3005/users/me', 
+  {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-    }
+  },
+  }).then((res)=>{
+    return res.json();
+  }).then((data)=>{
+    return data;
   })
-  ).then(checkResponse)
+  .catch((err)=>{
+    console.log(err);
+  })
 };

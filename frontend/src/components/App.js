@@ -47,27 +47,6 @@ function App(){
 
   const history = useHistory();
 
-  useEffect(() => {
-    handleTokenCheck();
-  }, []);
-
-  useEffect(() => {
-    if (loggedIn) {
-      history.push("/");
-    }
-  }, [loggedIn, history]);
-
-  useEffect(()=>{
-      Promise.all([
-        api.getCards(),
-        api.getUser()
-      ])
-      .then(([cardsData, userData]) =>{
-        setCurrentUser(userData.user);
-        setCurrentCards(cardsData.data.reverse());
-      }).catch(err => console.log(err));  
-  }, [loggedIn, history]);
-
   function hanldeCardClick(cardUrl, cardName){
     setSelectedCard({url: cardUrl, name: cardName});
     handleCardImageClick(true);
@@ -103,19 +82,19 @@ function App(){
   function handleAddPlaceSubmit(name, link){
       api.addCard(name, link)
       .then((data)=>{
-        console.log(data.card);
         setCurrentCards([data.card, ...currentCards])
         closeAllPopups();
       }).catch(err => console.log(err))
   }
 
   function handleUpdateUser(data){
-      api.setUser(data)
+    api.setUser(data)
       .then((data)=>{
         setCurrentUser(data.updatedUser);
       }).catch(err => console.log(err))
-      closeAllPopups();
+    closeAllPopups();
   };
+  
 
   function handleUpdateAvatar(data){
     api.editAvatar(data.avatar)
@@ -140,9 +119,8 @@ function App(){
   function handleLogin(email, password){
     authorization.userLogin(email, password)
       .then((res)=>{
-        let currentToken = localStorage.getItem('jwt');
-
-        if (currentToken){
+        console.log(res);
+        if (localStorage.getItem('jwt') === res.userToken){
           setLoggedIn(true);
           setCurrentUserEmail(email);
           history.push('/');
@@ -150,25 +128,42 @@ function App(){
         }
       }).catch((err)=>{console.log(`Ошибка входа: ${err}. Тип ошибки: ${err.name}`)});
   }
-  
-  function handleTokenCheck(){
-    let currentToken = localStorage.getItem('jwt');
-    
-    if (currentToken){
-        authorization.checkToken(currentToken)
-        .then((currentUser)=>{
-            setLoggedIn(true);
-            setCurrentUserEmail(currentUser.data.email);
-            history.push('/');
-        })
-      }
+
+  function checkToken(){
+    if (localStorage.getItem('jwt')){
+      authorization.getContent(localStorage.getItem('jwt'))
+      .then((res)=>{
+        setCurrentUserEmail(res.user.email);
+          setLoggedIn(true);
+          history.push('/');
+      })
+      .catch((err) => { console.log(err) });
+    }
   }
-  
+
+  useEffect(() => {
+    checkToken();
+  }, []); 
+    
+  useEffect(()=>{
+    if(loggedIn) {
+      Promise.all([
+        api.getUser(localStorage.getItem('jwt')), 
+        api.getCards(localStorage.getItem('jwt')),
+      ]).then(([userData, cardsData])=>{
+        setCurrentUser(userData.user);
+        setCurrentCards(cardsData.data.reverse());
+      }).catch((err)=>{
+        console.log(err);
+      });
+    }
+  }, [loggedIn]);
+
   function handleLogOut(){
-          localStorage.removeItem('jwt');
-          setLoggedIn(false)
-          history.push('/login');
-        return
+    localStorage.removeItem('jwt');
+    setLoggedIn(false);
+    history.push('/login');
+    return;
   }
 
   return (

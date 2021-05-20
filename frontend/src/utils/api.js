@@ -17,12 +17,12 @@ class Api {
   //Методы карточек
 
   //1. Получить данные карточек
-  getCards(){
+  getCards(token){
     return fetch(`${this._url}/cards`,
     {
      method: 'GET',
      headers: {
-      authorization: `Bearer ${this._token}`,   
+      authorization: `Bearer ${token}`, 
       'Content-Type': 'application/json',
       },
     }).then(this.getRes);
@@ -83,12 +83,12 @@ class Api {
   //Методы пользователя
 
   //Получить данные пользователя
-  getUser(){
+  getUser(token){
     return fetch(`${this._url}/users/me`,
       {
         method: 'GET',
         headers: {
-          authorization: `Bearer ${this._token}`,
+          authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         }
       }
