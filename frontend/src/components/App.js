@@ -57,14 +57,14 @@ function App(){
 
     console.log(card.likes);
     
-    api.toggleLikeCard(card.id, !isLiked)
+    api.toggleLikeCard(card.id, !isLiked, localStorage.getItem('jwt'))
     .then((newCardData)=>{
       setCurrentCards(((state)=> state.map((c) => c._id === card.id ? newCardData.likedCard : c)))
     })  
   }
 
   function handleDeleteCard(data){
-    api.deleteCard(data.id)
+    api.deleteCard(data.id, localStorage.getItem('jwt'))
     .then(()=>{
       setCurrentCards(currentCards.filter(card => !(card._id === data.id)))
     }).catch(err => console.log(err));
@@ -80,7 +80,7 @@ function App(){
   }
 
   function handleAddPlaceSubmit(name, link){
-      api.addCard(name, link)
+      api.addCard(name, link, localStorage.getItem('jwt'))
       .then((data)=>{
         setCurrentCards([data.card, ...currentCards])
         closeAllPopups();

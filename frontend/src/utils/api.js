@@ -29,12 +29,12 @@ class Api {
   };
 
   //2. Добавить карточку
-  addCard(name, url){
+  addCard(name, url, token){
     return fetch(`${this._url}/cards`,
       {
       method: 'POST',
       headers:{
-        authorization: `Bearer ${this._token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
         }, 
         body:JSON.stringify({
@@ -55,12 +55,12 @@ class Api {
     }
 
     //Применение лайк-статуса к методу лайка карточки:
-    toggleLikeCard(cardId, likeStatus){
+    toggleLikeCard(cardId, likeStatus, token){
       return fetch(`${this._url}/cards/${cardId}/likes`,
         {
           method: likeStatus ? "PUT" : "DELETE",
           headers:{
-            authorization: `Bearer ${this._token}`,
+            authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           },
         }
@@ -68,12 +68,12 @@ class Api {
     };
 
   //Удалить карточку
-  deleteCard(cardId){
+  deleteCard(cardId, token){
     return fetch(`${this._url}/cards/${cardId}`,
       {
         method: "DELETE",
         headers:{
-          authorization: `Bearer ${this._token}`,
+          authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       }
@@ -130,7 +130,7 @@ class Api {
 
 const apiSettings = {
   url: "http://localhost:3005",
-  token: localStorage.getItem('jwt'),
+  // token: localStorage.getItem('jwt'),
 };    
 
 const api = new Api (apiSettings);
