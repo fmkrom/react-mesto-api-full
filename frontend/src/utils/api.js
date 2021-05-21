@@ -96,12 +96,12 @@ class Api {
   };
   
   //Установить новые ДП
-  setUser(data){
+  setUser(data, token){
     return fetch(`${this._url}/users/me`,
       {
         method: 'PATCH',
         headers: {
-          authorization: `Bearer ${this._token}`,
+          authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }, 
         body: JSON.stringify({
@@ -112,12 +112,12 @@ class Api {
   };
 
   //Редактировать аватар
-  editAvatar(url){
+  editAvatar(url, token){
     return fetch(`${this._url}/users/me/avatar`,
     {
       method: 'PATCH',
       headers: {
-        authorization: `Bearer ${this._token}`,
+        authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       }, 
       body: JSON.stringify({

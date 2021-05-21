@@ -59,6 +59,7 @@ function login(req, res, next) {
         about: user.about,
         avatar: user.avatar,
         email: user.email,
+        id: user._id,
         userToken: token,
       });
     })

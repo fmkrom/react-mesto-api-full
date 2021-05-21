@@ -32,8 +32,7 @@ export function userLogin(email, password){
 };
 
 export function getContent(token){
-  return fetch('http://localhost:3005/users/me', 
-  {
+  return fetch(`${basicBackendUrl}/users/me`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,

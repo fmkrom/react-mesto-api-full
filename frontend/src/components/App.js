@@ -88,8 +88,9 @@ function App(){
   }
 
   function handleUpdateUser(data){
-    api.setUser(data)
+    api.setUser(data, localStorage.getItem('jwt'))
       .then((data)=>{
+        console.log(data);
         setCurrentUser(data.updatedUser);
       }).catch(err => console.log(err))
     closeAllPopups();
@@ -97,7 +98,7 @@ function App(){
   
 
   function handleUpdateAvatar(data){
-    api.editAvatar(data.avatar)
+    api.editAvatar(data.avatar, localStorage.getItem('jwt'))
     .then((data)=>{
       setCurrentUser(data.updatedUser);
     }).catch(err => console.log(err))
