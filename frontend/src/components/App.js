@@ -53,14 +53,14 @@ function App(){
   }
 
   function handleLikeCard(card){
-    const isLiked = card.likes.some((item)=> item._id === currentUser._id);
+    const isLiked = card.likes.some((item)=> item === currentUser._id);
 
-    console.log(card.likes);
-    
     api.toggleLikeCard(card.id, !isLiked, localStorage.getItem('jwt'))
-    .then((newCardData)=>{
-      setCurrentCards(((state)=> state.map((c) => c._id === card.id ? newCardData.likedCard : c)))
-    })  
+    .then((likedCard)=>{
+      setCurrentCards(((state)=> state.map((c) => c._id === card.id ? likedCard : c)))
+    })
+    
+    console.log('Like status in handleLike:', isLiked);
   }
 
   function handleDeleteCard(data){

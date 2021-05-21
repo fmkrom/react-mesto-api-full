@@ -64,7 +64,7 @@ class Api {
             'Content-Type': 'application/json'
           },
         }
-      ).then(this.getRes);
+      ).then(this.getRes)
     };
 
   //Удалить карточку
@@ -130,8 +130,7 @@ class Api {
 
 const apiSettings = {
   url: "http://localhost:3005",
-  // token: localStorage.getItem('jwt'),
-};    
+};   
 
 const api = new Api (apiSettings);
 

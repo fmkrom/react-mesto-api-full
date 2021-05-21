@@ -84,7 +84,7 @@ function likeCard(req, res, next) {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   ).orFail(new Error('NotFound'))
-    .then((likedCard) => res.send({ likedCard }))
+    .then((likedCard) => res.send(likedCard))
     .catch((err) => handleErr(err))
     .catch(next);
 }
@@ -95,7 +95,7 @@ function dislikeCard(req, res, next) {
     { $pull: { likes: req.user._id } },
     { new: true },
   ).orFail(new Error('NotFound'))
-    .then((dislikedCard) => res.send({ dislikedCard }))
+    .then((dislikedCard) => res.send(dislikedCard))
     .catch((err) => handleErr(err))
     .catch(next);
 }
