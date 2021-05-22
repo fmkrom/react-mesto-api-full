@@ -23,7 +23,7 @@ class Api {
     return fetch(`${this._url}/cards`,
     {
      method: 'GET',
-     mode: 'no-cors',
+     // mode: 'no-cors',
      headers: {
       authorization: `Bearer ${token}`, 
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ class Api {
     return fetch(`${this._url}/cards`,
       {
       method: 'POST',
-      mode: 'no-cors',
+      // mode: 'no-cors',
       headers:{
         authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ class Api {
       return fetch(`${this._url}/cards/${cardId}/likes`,
         {
           method: likeStatus ? "PUT" : "DELETE",
-          mode: 'no-cors',
+          // mode: 'no-cors',
           headers:{
             authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}`,
       {
         method: "DELETE",
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers:{
           authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ class Api {
     return fetch(`${this._url}/users/me`,
       {
         method: 'GET',
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: {
           authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ class Api {
     return fetch(`${this._url}/users/me`,
       {
         method: 'PATCH',
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: {
           authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`,
     {
       method: 'PATCH',
-      mode: 'no-cors',
+      // mode: 'no-cors',
       headers: {
         authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
