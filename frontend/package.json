@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* fmkrom@84.201.128.133:/home/fmkrom/mesto-frontend"
+    "deploy": "npm run build && scp -r ./build/* fmkrom@178.154.200.193:/home/fmkrom/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [
