@@ -18,34 +18,10 @@ const {
   login,
 } = require('./controllers/users');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3005 } = process.env;
 const app = express();
 
-/*const allowedCors = [
-  'https://api.fmkrom.students.nomoredomains.icu',
-  'http://api.fmkrom.students.nomoredomains.icu',
-  'https://fmkrom.students.nomoredomains.club',
-  'https://fmkrom.students.nomoredomains.club',
-  'http://fmkrom.students.nomoredomains.club',
-  'http://localhost:3000',
-  'http://localhost:3005',
-];*/
-
-app.use(
-  cors({
-  origin: 'https://api.fmkrom.students.nomoredomains.icu',
-  origin: 'http://api.fmkrom.students.nomoredomains.icu',
-  origin: 'https://fmkrom.students.nomoredomains.club',
-  origin: 'https://fmkrom.students.nomoredomains.club',
-  origin: 'http://fmkrom.students.nomoredomains.club',
-  origin: 'http://localhost:3000',
-  origin: 'http://localhost:3005',
-    exposedHeaders: '*',
-    credentials: true,
-    methods: 'GET, PUT, PATCH, POST, DELETE',
-    allowedHeaders: 'Origin, Content-Type, Accept',
-  })
-);
+app.use(cors());
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -68,7 +44,6 @@ app.get('/crash-test', () => {
 });
 
 app.use('/signin', 
-res.header('Access-Control-Allow-Origin', '*'),
 celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().min(2).max(30),
@@ -77,7 +52,6 @@ celebrate({
 }), login);
 
 app.use('/signup', 
-res.header('Access-Control-Allow-Origin', '*'),
 celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
