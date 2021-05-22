@@ -33,7 +33,7 @@ const allowedCors = [
 
 app.use(
   cors({
-    origin: true, 
+    origin: '*', 
     exposedHeaders: '*',
     credentials: true,
     methods: 'GET, PUT, PATCH, POST, DELETE',
