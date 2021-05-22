@@ -33,7 +33,7 @@ const allowedCors = [
 
 app.use(
   cors({
-    origin: '*', 
+    origin: allowedCors, 
     exposedHeaders: '*',
     credentials: true,
     methods: 'GET, PUT, PATCH, POST, DELETE',
@@ -61,14 +61,18 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/signin', celebrate({
+app.use('/signin', 
+res.header('Access-Control-Allow-Origin', '*'),
+celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().min(2).max(30),
     password: Joi.string().required().min(8),
   }),
 }), login);
 
-app.use('/signup', celebrate({
+app.use('/signup', 
+res.header('Access-Control-Allow-Origin', '*'),
+celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
