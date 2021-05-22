@@ -18,12 +18,13 @@ const {
   login,
 } = require('./controllers/users');
 
-const { PORT = 3005 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 
 const allowedCors = [
   'https://api.fmkrom.students.nomoredomains.icu',
   'http://api.fmkrom.students.nomoredomains.icu',
+  'https://fmkrom.students.nomoredomains.club',
   'https://fmkrom.students.nomoredomains.club',
   'http://fmkrom.students.nomoredomains.club',
   'http://localhost:3000',
