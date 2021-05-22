@@ -5,7 +5,7 @@ const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибк�
 export function userRegister(email, password){  
   return fetch(`${BASE_URL}/signup`,{
     method: 'POST',
-    'credentials': 'include',
+    mode: 'no-cors',
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
@@ -18,6 +18,7 @@ export function userRegister(email, password){
 export function userLogin(email, password){
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
+    mode: 'no-cors',
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
@@ -34,6 +35,7 @@ export function userLogin(email, password){
 export function getContent(token){
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    mode: 'no-cors',
     headers: {
       'Authorization': `Bearer ${token}`,
       'Accept': 'application/json',

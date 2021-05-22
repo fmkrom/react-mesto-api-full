@@ -36,7 +36,7 @@ app.use(
     exposedHeaders: '*',
     credentials: true,
     methods: 'GET, PUT, PATCH, POST, DELETE',
-    allowedHeaders: 'Origin,Content-Type,Accept',
+    allowedHeaders: 'Origin, Content-Type, Accept',
   })
 );
 
@@ -92,3 +92,14 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server launched sucesfully! App listening on port: ${PORT}`);
 });
+
+/* Для разрешения запросов со всех доменов:
+
+app.use(
+  cors({
+   origin: true,
+   exposedHeaders: '*'
+   credentials: true,
+  })
+)
+*/
