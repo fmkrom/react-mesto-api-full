@@ -6,6 +6,8 @@ const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
 
+const { allowedCors } = require('./utils/allowedCors');
+
 const usersRoutes = require('./routes/users');
 const cardsRoutes = require('./routes/cards');
 const notFoundRoutes = require('./routes/notFound');
@@ -21,10 +23,14 @@ const {
 const { PORT = 3005 } = process.env;
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: allowedCors,
+    credentials: true,
+    methods: 'GET, PUT, PATCH, POST, DELETE',
+    allowedHeaders: 'Origin,Content-Type,Accept',
+  })
+);
 
 app.use(cookieParser());
 app.use(bodyParser.json());
