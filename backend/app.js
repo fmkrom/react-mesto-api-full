@@ -21,7 +21,7 @@ const {
 const { PORT = 3000 } = process.env;
 const app = express();
 
-const allowedCors = [
+/*const allowedCors = [
   'https://api.fmkrom.students.nomoredomains.icu',
   'http://api.fmkrom.students.nomoredomains.icu',
   'https://fmkrom.students.nomoredomains.club',
@@ -29,11 +29,17 @@ const allowedCors = [
   'http://fmkrom.students.nomoredomains.club',
   'http://localhost:3000',
   'http://localhost:3005',
-];
+];*/
 
 app.use(
   cors({
-    origin: allowedCors, 
+  origin: 'https://api.fmkrom.students.nomoredomains.icu',
+  origin: 'http://api.fmkrom.students.nomoredomains.icu',
+  origin: 'https://fmkrom.students.nomoredomains.club',
+  origin: 'https://fmkrom.students.nomoredomains.club',
+  origin: 'http://fmkrom.students.nomoredomains.club',
+  origin: 'http://localhost:3000',
+  origin: 'http://localhost:3005',
     exposedHeaders: '*',
     credentials: true,
     methods: 'GET, PUT, PATCH, POST, DELETE',
