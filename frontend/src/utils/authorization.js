@@ -1,9 +1,9 @@
-const basicBackendUrl = 'http://localhost:3005';
+import BASE_URL from '../utils/contants.js';
 
 const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.statusText}`);
 
 export function userRegister(email, password){  
-  return fetch(`${basicBackendUrl}/signup`,{
+  return fetch(`${BASE_URL}/signup`,{
     method: 'POST',
     'credentials': 'include',
     headers: {
@@ -16,7 +16,7 @@ export function userRegister(email, password){
 };
 
 export function userLogin(email, password){
-  return fetch(`${basicBackendUrl}/signin`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: {
       "Accept": "application/json",
@@ -32,7 +32,7 @@ export function userLogin(email, password){
 };
 
 export function getContent(token){
-  return fetch(`${basicBackendUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,

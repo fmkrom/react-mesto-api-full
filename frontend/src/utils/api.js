@@ -1,3 +1,5 @@
+import BASE_URL from '../utils/contants';
+
 class Api {
   constructor(settings){
       this._url = settings.url;
@@ -129,7 +131,7 @@ class Api {
 }
 
 const apiSettings = {
-  url: "http://localhost:3005",
+  url: BASE_URL,
 };   
 
 const api = new Api (apiSettings);

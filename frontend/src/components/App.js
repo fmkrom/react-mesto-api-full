@@ -59,8 +59,6 @@ function App(){
     .then((likedCard)=>{
       setCurrentCards(((state)=> state.map((c) => c._id === card.id ? likedCard : c)))
     })
-    
-    console.log('Like status in handleLike:', isLiked);
   }
 
   function handleDeleteCard(data){
@@ -120,7 +118,6 @@ function App(){
   function handleLogin(email, password){
     authorization.userLogin(email, password)
       .then((res)=>{
-        console.log(res);
         if (localStorage.getItem('jwt') === res.userToken){
           setLoggedIn(true);
           setCurrentUserEmail(email);
@@ -130,21 +127,20 @@ function App(){
       }).catch((err)=>{console.log(`Ошибка входа: ${err}. Тип ошибки: ${err.name}`)});
   }
 
-  function checkToken(){
-    if (localStorage.getItem('jwt')){
-      authorization.getContent(localStorage.getItem('jwt'))
-      .then((res)=>{
-        setCurrentUserEmail(res.user.email);
-          setLoggedIn(true);
-          history.push('/');
-      })
-      .catch((err) => { console.log(err) });
-    }
-  }
-
   useEffect(() => {
-    checkToken();
-  }, []); 
+    function checkToken(){
+      if (localStorage.getItem('jwt')){
+        authorization.getContent(localStorage.getItem('jwt'))
+        .then((res)=>{
+          setCurrentUserEmail(res.user.email);
+            setLoggedIn(true);
+            history.push('/');
+        })
+        .catch((err) => { console.log(err) });
+      }
+    }
+    checkToken()
+  }, [history]);
     
   useEffect(()=>{
     if(loggedIn) {
