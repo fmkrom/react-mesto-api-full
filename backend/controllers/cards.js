@@ -34,28 +34,6 @@ function createCard(req, res, next) {
     })
     .catch(next);
 }
-
-function getCardById(req, res, next) {
-  Card.findById(req.params.cardId)
-    .orFail(new Error('NotFound'))
-    .then((card) => {
-      if (!card) {
-        throw new BadRequestError('Переданы некорректные данные');
-      } else {
-        res.status(200).send({ card });
-      }
-    })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        throw new BadRequestError('Переданы некорректные данные');
-      } else if (err.message === 'NotFound') {
-        throw new NotFoundError('Данные не найдены');
-      }
-      next(err);
-    })
-    .catch(next);
-}
-
 function deleteCard(req, res, next) {
   Card.findById(req.params.cardId)
     .then((foundCard) => {
@@ -103,7 +81,6 @@ function dislikeCard(req, res, next) {
 module.exports = {
   getCards,
   createCard,
-  getCardById,
   deleteCard,
   likeCard,
   dislikeCard,

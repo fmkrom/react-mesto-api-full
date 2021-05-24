@@ -7,7 +7,6 @@ const {
   deleteCard,
   likeCard,
   dislikeCard,
-  getCardById,
 } = require('../controllers/cards');
 
 router.get('/', getCards);
@@ -19,10 +18,30 @@ router.post('/', celebrate({
   }),
 }), createCard);
 
-router.get('/:cardId', getCardById);
-router.delete('/:cardId', deleteCard);
+router.delete('/:cardId', celebrate({
+  params: Joi.object().keys({
+    cardId: Joi.string().required().length(24).hex(),
+  }),
+}), deleteCard);
 
-router.put('/:cardId/likes', likeCard);
-router.delete('/:cardId/likes', dislikeCard);
+router.put('/:cardId/likes', celebrate({
+  params: Joi.object().keys({
+    cardId: Joi.string().required().length(24).hex(),
+  })
+}), likeCard);
+
+router.delete('/:cardId/likes', celebrate({
+  params: Joi.object().keys({
+    cardId: Joi.string().required().length(24).hex(),
+  })
+}), dislikeCard);
 
 module.exports = router;
+
+
+// Joi.string().validate(undefined, /* options */ { presence: "required" });
+// validator: (value) => validator.isURL(value, { protocols: ['http', 'https', 'ftp'], require_tld: true, require_protocol: true }),
+
+/*
+
+*/
