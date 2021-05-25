@@ -27,21 +27,13 @@ router.delete('/:cardId', celebrate({
 router.put('/:cardId/likes', celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().required().length(24).hex(),
-  })
+  }),
 }), likeCard);
 
 router.delete('/:cardId/likes', celebrate({
   params: Joi.object().keys({
     cardId: Joi.string().required().length(24).hex(),
-  })
+  }),
 }), dislikeCard);
 
 module.exports = router;
-
-
-// Joi.string().validate(undefined, /* options */ { presence: "required" });
-// validator: (value) => validator.isURL(value, { protocols: ['http', 'https', 'ftp'], require_tld: true, require_protocol: true }),
-
-/*
-
-*/

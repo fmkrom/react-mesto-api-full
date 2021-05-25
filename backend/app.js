@@ -43,24 +43,24 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/signin', 
-celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().min(2).max(30),
-    password: Joi.string().required().min(8),
-  }),
-}), login);
+app.use('/signin',
+  celebrate({
+    body: Joi.object().keys({
+      email: Joi.string().required().min(2).max(30),
+      password: Joi.string().required().min(8),
+    }),
+  }), login);
 
-app.use('/signup', 
-celebrate({
-  body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
-    avatar: Joi.string(),
-    email: Joi.string().required().min(2).max(30),
-    password: Joi.string().required().min(8),
-  }),
-}), createUser);
+app.use('/signup',
+  celebrate({
+    body: Joi.object().keys({
+      name: Joi.string().min(2).max(30),
+      about: Joi.string().min(2).max(30),
+      avatar: Joi.string(),
+      email: Joi.string().required().min(2).max(30),
+      password: Joi.string().required().min(8),
+    }),
+  }), createUser);
 
 app.use('/users', auth, usersRoutes);
 app.use('/cards', auth, cardsRoutes);
@@ -77,14 +77,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server launched sucesfully! App listening on port: ${PORT}`);
 });
-
-/* Для разрешения запросов со всех доменов:
-
-app.use(
-  cors({
-   origin: true,
-   exposedHeaders: '*'
-   credentials: true,
-  })
-)
-*/
